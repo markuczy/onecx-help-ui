@@ -1,6 +1,6 @@
 <form [formGroup]="formGroup">
   <div class="flex flex-wrap flex-column gap-4 justify-content-between mt-2">
-    <span class="p-float-label">
+    <p-floatlabel variant="on">
       <input
         id="hm_item_editor_form_product_name"
         class="w-full"
@@ -12,12 +12,12 @@
         tooltipPosition="top"
         tooltipEvent="hover"
       />
-      <label class="ocx-required-label" for="hm_item_editor_form_product_name">
+      <label class="help-required-label" for="hm_item_editor_form_product_name">
         {{ 'HELP_ITEM.APPLICATION_NAME' | translate }}</label
       >
-    </span>
+    </p-floatlabel>
 
-    <span class="p-float-label">
+    <p-floatlabel variant="on">
       <input
         id="hm_item_editor_form_helpitem_id"
         class="w-full pt-3 pb-2 text-responsive"
@@ -29,10 +29,10 @@
         tooltipPosition="top"
         tooltipEvent="hover"
       />
-      <label class="ocx-required-label" for="hm_item_editor_form_helpitem_id">
+      <label class="help-required-label" for="hm_item_editor_form_helpitem_id">
         {{ 'HELP_ITEM.HELP_ITEM_ID' | translate }}</label
       >
-    </span>
+    </p-floatlabel>
 
     <p-fieldset [toggleable]="false" [collapsed]="false" styleClass="surface-100 pb-3 px-2">
       <ng-template pTemplate="header">
@@ -41,7 +41,7 @@
         </span>
       </ng-template>
       <div class="flex flex-wrap flex-column gap-4 justify-content-between mt-2">
-        <span class="p-float-label">
+        <p-floatlabel variant="on">
           <input
             id="hm_item_editor_form_base_url"
             class="w-full pt-3 pb-2 text-responsive"
@@ -53,11 +53,11 @@
             tooltipPosition="top"
             tooltipEvent="hover"
           />
-          <label class="ocx-required-label" for="hm_item_editor_form_base_url">
+          <label class="help-required-label" for="hm_item_editor_form_base_url">
             {{ 'HELP_ITEM.BASE_URL' | translate }}</label
           >
-        </span>
-        <span class="p-float-label">
+        </p-floatlabel>
+        <p-floatlabel variant="on">
           <input
             id="hm_item_editor_form_resource_url"
             class="w-full pt-3 pb-2 text-responsive"
@@ -70,8 +70,8 @@
             tooltipEvent="hover"
           />
           <label for="hm_item_editor_form_resource_url">{{ 'HELP_ITEM.RESOURCE_URL' | translate }}</label>
-        </span>
-        <span class="p-float-label">
+        </p-floatlabel>
+        <p-floatlabel variant="on">
           <input
             pInputText
             type="text"
@@ -84,7 +84,7 @@
             tooltipEvent="hover"
           />
           <label class="" for="hm_item_editor_form_context">{{ 'HELP_ITEM.CONTEXT' | translate }}</label>
-        </span>
+        </p-floatlabel>
       </div>
     </p-fieldset>
   </div>
