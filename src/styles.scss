@@ -10,3 +10,21 @@
     background-color: var(--table-body-row-even-bg);
   }
 }
+
+label.help-required-label:after {
+  color: #d00;
+  content: '*';
+  margin-left: 1px;
+}
+
+:root {
+  font-size: 14px;
+}
+
+.p-button.p-button-text:enabled:focus {
+  background: rgba(var(--primary-color-rgb), 0.12);
+}
+
+.p-button.p-button-text.p-dialog-close-button:enabled:focus {
+  background: #ffffff;
+}

@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, DoBootstrap, Injector, NgModule } from '@angular/core'
+import { provideAppInitializer, DoBootstrap, Injector, NgModule } from '@angular/core'
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -56,7 +56,7 @@ const routes: Routes = [
     ConfigurationService,
     { provide: Configuration, useFactory: apiConfigProvider, deps: [ConfigurationService, AppStateService] },
     {
-      provide: APP_INITIALIZER,
+      provide: provideAppInitializer,
       useFactory: initializeRouter,
       multi: true,
       deps: [Router, AppStateService]
@@ -72,11 +72,104 @@ const routes: Routes = [
       overrides: {
         components: {
           breadcrumb: {
+            padding: '0.75rem',
             item: {
-              color: 'red'
+              icon: {
+                color: 'rgba(0, 0, 0, 0.87)'
+              },
+              color: 'rgba(0, 0, 0, 0.87)'
             },
             separator: {
-              color: 'pink'
+              color: 'rgba(0, 0, 0, 0.87)'
+            }
+          },
+          paginator: {
+            current: {
+              page: {
+                report: {
+                  color: 'rgba(0, 0, 0, 0.87)'
+                }
+              }
+            }
+          },
+          datatable: {
+            header: {
+              cell: {
+                background: '#ffffff',
+                hover: {
+                  background: 'rgba(0, 0, 0, .04)'
+                },
+                selected: {
+                  background: 'rgba(0, 0, 0, .04)',
+                  color: 'rgba(0, 0, 0, 0.87)'
+                }
+              }
+            },
+            column: {
+              title: {
+                font: {
+                  weight: '500'
+                }
+              }
+            }
+          },
+          autocomplete: {
+            dropdown: {
+              background: '#274b5f',
+              color: '#ffffff',
+              hover: {
+                background: '#ad1457',
+                color: '#ffffff'
+              },
+              border: {
+                color: '#274b5f'
+              }
+            }
+          },
+          floatlabel: {
+            font: {
+              weight: '400'
+            }
+          },
+          fileupload: {
+            header: {
+              padding: '0.75rem'
+            },
+            content: {
+              padding: '0.75rem'
+            }
+          },
+          dialog: {
+            footer: {
+              padding: '10.5px 17.5px 10.5px 17.5px'
+            },
+            title: {
+              font: {
+                weight: '500'
+              }
+            }
+          },
+          fieldset: {
+            padding: '4.9px',
+            legend: {
+              font: {
+                weight: '500'
+              }
+            }
+          },
+          inputgroup: {
+            padding: '0.75'
+          },
+          inputtext: {
+            color: 'rgba(0, 0, 0, .87)',
+            disabled: {
+              background: '#ffffff',
+              color: 'rgba(0, 0, 0, .87)'
+            }
+          },
+          button: {
+            padding: {
+              y: '0.643rem'
             }
           }
         }

@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core'
+import { provideAppInitializer, NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { RouterModule, Routes } from '@angular/router'
@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core'
 
 import { KeycloakAuthModule } from '@onecx/keycloak-auth'
-import { createTranslateLoader } from '@onecx/angular-accelerator'
+import { createTranslateLoader } from '@onecx/angular-utils'
 import { APP_CONFIG, AppStateService, UserService } from '@onecx/angular-integration-interface'
 import { translateServiceInitializer, PortalCoreModule } from '@onecx/portal-integration-angular'
 
@@ -45,7 +45,7 @@ const routes: Routes = [
   providers: [
     { provide: APP_CONFIG, useValue: environment },
     {
-      provide: APP_INITIALIZER,
+      provide: provideAppInitializer,
       useFactory: translateServiceInitializer,
       multi: true,
       deps: [UserService, TranslateService]
