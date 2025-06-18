@@ -3,9 +3,8 @@ import { TestBed } from '@angular/core/testing'
 import { provideHttpClient } from '@angular/common/http'
 import { provideHttpClientTesting } from '@angular/common/http/testing'
 
-import { MfeInfo } from '@onecx/portal-integration-angular'
-
 import { environment } from 'src/environments/environment'
+import { MfeInfo } from '@onecx/integration-interface'
 
 describe('SharedModule', () => {
   beforeEach(() => {

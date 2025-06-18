@@ -7,11 +7,11 @@ import { of, throwError } from 'rxjs'
 import { FileSelectEvent } from 'primeng/fileupload'
 
 import { createTranslateLoader } from '@onecx/angular-accelerator'
-import { AppStateService } from '@onecx/angular-integration-interface'
-import { Column, PortalMessageService } from '@onecx/portal-integration-angular'
+import { AppStateService, PortalMessageService } from '@onecx/angular-integration-interface'
 
 import { HelpsInternalAPIService, Help, SearchHelpsRequestParams, Product } from 'src/app/shared/generated'
 import { HelpSearchComponent } from './help-search.component'
+import { Column } from 'src/app/types/column'
 
 const helpItem: Help = {
   itemId: 'id',

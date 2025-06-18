@@ -7,7 +7,6 @@ import { bootstrapRemoteComponent } from '@onecx/angular-webcomponents'
 
 import { environment } from 'src/environments/environment'
 import { OneCXHelpItemEditorComponent } from './help-item-editor.component'
-import { providePortalDialogService } from '@onecx/portal-integration-angular'
 import {
   REMOTE_COMPONENT_CONFIG,
   RemoteComponentConfig,
@@ -21,6 +20,7 @@ import {
   provideThemeConfig,
   remoteComponentTranslationPathFactory
 } from '@onecx/angular-utils'
+import { providePortalDialogService } from '@onecx/angular-accelerator'
 
 bootstrapRemoteComponent(OneCXHelpItemEditorComponent, 'ocx-help-item-editor-component', environment.production, [
   provideHttpClient(withInterceptorsFromDi()),

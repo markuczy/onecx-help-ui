@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { RouterModule, Routes } from '@angular/router'
 
-import { PortalCoreModule } from '@onecx/portal-integration-angular'
 import { SharedModule } from 'src/app/shared/shared.module'
 
 import { HelpSearchComponent } from './help-search/help-search.component'
 import { HelpCriteriaComponent } from './help-search/help-criteria/help-criteria.component'
 import { HelpDetailComponent } from './help-detail/help-detail.component'
 import { HelpFormComponent } from './help-form/help-form.component'
+import { AngularAcceleratorModule } from '@onecx/angular-accelerator'
 
 const routes: Routes = [
   {
@@ -20,13 +20,7 @@ const routes: Routes = [
 ]
 @NgModule({
   declarations: [HelpSearchComponent, HelpDetailComponent, HelpCriteriaComponent, HelpFormComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    PortalCoreModule.forMicroFrontend(),
-    [RouterModule.forChild(routes)],
-    SharedModule
-  ],
+  imports: [CommonModule, FormsModule, AngularAcceleratorModule, [RouterModule.forChild(routes)], SharedModule],
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HelpModule {

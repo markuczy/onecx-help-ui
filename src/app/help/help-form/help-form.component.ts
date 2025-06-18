@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { Column } from '@onecx/portal-integration-angular'
 import { Help, Product } from 'src/app/shared/generated'
+import { Column } from 'src/app/types/column'
 
 export interface HelpDetailForm {
   product: FormControl<Product | null>

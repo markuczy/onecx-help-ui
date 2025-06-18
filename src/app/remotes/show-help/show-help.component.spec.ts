@@ -12,8 +12,7 @@ import { RippleModule } from 'primeng/ripple'
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog'
 
 import { IfPermissionDirective } from '@onecx/angular-accelerator'
-import { AppStateService } from '@onecx/angular-integration-interface'
-import { PortalMessageService } from '@onecx/portal-integration-angular'
+import { AppStateService, PortalMessageService } from '@onecx/angular-integration-interface'
 import { BASE_URL, RemoteComponentConfig } from '@onecx/angular-remote-components'
 
 import { Help, HelpsInternalAPIService } from 'src/app/shared/generated'

@@ -7,11 +7,11 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { of, throwError } from 'rxjs'
 
 import { createTranslateLoader } from '@onecx/angular-accelerator'
-import { AppStateService } from '@onecx/angular-integration-interface'
-import { Column, PortalMessageService } from '@onecx/portal-integration-angular'
+import { AppStateService, PortalMessageService } from '@onecx/angular-integration-interface'
 
 import { Help, HelpsInternalAPIService, CreateHelp, Product } from 'src/app/shared/generated'
 import { HelpDetailComponent } from './help-detail.component'
+import { Column } from 'src/app/types/column'
 
 function convertFormGroupProductToProductName(formGroup: FormGroup) {
   const expectedArgument = formGroup.value

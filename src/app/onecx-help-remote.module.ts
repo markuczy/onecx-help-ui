@@ -14,8 +14,7 @@ import {
 import { AngularAuthModule } from '@onecx/angular-auth'
 import { AppStateService, ConfigurationService } from '@onecx/angular-integration-interface'
 import { createAppEntrypoint, initializeRouter, startsWith } from '@onecx/angular-webcomponents'
-
-import { PortalCoreModule, PortalMissingTranslationHandler } from '@onecx/portal-integration-angular'
+import { AngularAcceleratorMissingTranslationHandler, AngularAcceleratorModule } from '@onecx/angular-accelerator'
 
 import { Configuration } from './shared/generated'
 import { environment } from 'src/environments/environment'
@@ -37,7 +36,7 @@ const routes: Routes = [
     AngularAuthModule,
     BrowserModule,
     BrowserAnimationsModule,
-    PortalCoreModule.forMicroFrontend(),
+    AngularAcceleratorModule,
     RouterModule.forRoot(routes),
     TranslateModule.forRoot({
       isolate: true,
@@ -46,7 +45,10 @@ const routes: Routes = [
         useFactory: createTranslateLoader,
         deps: [HttpClient]
       },
-      missingTranslationHandler: { provide: MissingTranslationHandler, useClass: PortalMissingTranslationHandler }
+      missingTranslationHandler: {
+        provide: MissingTranslationHandler,
+        useClass: AngularAcceleratorMissingTranslationHandler
+      }
     })
   ],
   providers: [

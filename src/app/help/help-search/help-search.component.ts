@@ -5,7 +5,6 @@ import { catchError, finalize, map, Observable, of } from 'rxjs'
 import { Table } from 'primeng/table'
 import FileSaver from 'file-saver'
 
-import { Action, Column, PortalMessageService } from '@onecx/portal-integration-angular'
 import {
   Help,
   HelpsInternalAPIService,
@@ -17,6 +16,9 @@ import {
   SearchProductsByCriteriaRequestParams
 } from 'src/app/shared/generated'
 import { FileSelectEvent } from 'primeng/fileupload'
+import { Action } from '@onecx/angular-accelerator'
+import { PortalMessageService } from '@onecx/angular-integration-interface'
+import { Column } from '../../types/column'
 
 type ExtendedColumn = Column & { css?: string; limit?: boolean }
 type ChangeMode = 'VIEW' | 'CREATE' | 'EDIT'

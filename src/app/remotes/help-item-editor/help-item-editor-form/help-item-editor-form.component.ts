@@ -1,12 +1,13 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { TranslateModule } from '@ngx-translate/core'
-import { DialogButtonClicked, DialogResult, DialogState, PortalMessageService } from '@onecx/portal-integration-angular'
 import { InputTextModule } from 'primeng/inputtext'
 import { TooltipModule } from 'primeng/tooltip'
 import { FieldsetModule } from 'primeng/fieldset'
 import { Observable } from 'rxjs'
 import { Help } from 'src/app/shared/generated'
+import { PortalMessageService } from '@onecx/angular-integration-interface'
+import { DialogButtonClicked, DialogResult, DialogState } from '@onecx/angular-accelerator'
 
 @Component({
   selector: 'app-ocx-help-item-editor',

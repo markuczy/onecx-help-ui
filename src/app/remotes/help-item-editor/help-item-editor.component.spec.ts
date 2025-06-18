@@ -12,13 +12,8 @@ import { TooltipModule } from 'primeng/tooltip'
 import { RippleModule } from 'primeng/ripple'
 import { PrimeIcons } from 'primeng/api'
 
-import { AppStateService } from '@onecx/angular-integration-interface'
-import {
-  PortalDialogService,
-  PortalMessageService,
-  providePortalDialogService
-} from '@onecx/portal-integration-angular'
-import { IfPermissionDirective } from '@onecx/angular-accelerator'
+import { AppStateService, PortalMessageService } from '@onecx/angular-integration-interface'
+import { IfPermissionDirective, PortalDialogService, providePortalDialogService } from '@onecx/angular-accelerator'
 import { BASE_URL, RemoteComponentConfig } from '@onecx/angular-remote-components'
 
 import { Help, HelpsInternalAPIService } from 'src/app/shared/generated'
