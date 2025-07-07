@@ -25,7 +25,7 @@
               {
                 "input": "./src/styles.scss",
                 "bundleName": "styles",
-                "inject": true
+                "inject": false
               }
             ],
             "scripts": ["node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"],
