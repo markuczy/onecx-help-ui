@@ -7,15 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { TranslateLoader, TranslateModule, TranslateService, MissingTranslationHandler } from '@ngx-translate/core'
 
 import { KeycloakAuthModule } from '@onecx/keycloak-auth'
-import { createTranslateLoader, TRANSLATION_PATH, translationPathFactory } from '@onecx/angular-utils'
-import { APP_CONFIG, AppStateService, UserService } from '@onecx/angular-integration-interface'
+import { createTranslateLoader, provideTranslationPathFromMeta } from '@onecx/angular-utils'
+import { APP_CONFIG, UserService } from '@onecx/angular-integration-interface'
 import {
   translateServiceInitializer,
   PortalCoreModule,
   PortalMissingTranslationHandler
 } from '@onecx/portal-integration-angular'
 
-import { environment } from 'src/environments/environment'
+import { environment } from '../environments/environment'
 import { AppComponent } from './app.component'
 
 const routes: Routes = [
@@ -51,12 +51,7 @@ const routes: Routes = [
       multi: true,
       deps: [UserService, TranslateService]
     },
-    {
-      provide: TRANSLATION_PATH,
-      useFactory: (appStateService: AppStateService) => translationPathFactory('assets/i18n/')(appStateService),
-      multi: true,
-      deps: [AppStateService]
-    },
+    provideTranslationPathFromMeta(import.meta.url, 'assets/i18n/'),
     provideHttpClient(withInterceptorsFromDi())
   ]
 })

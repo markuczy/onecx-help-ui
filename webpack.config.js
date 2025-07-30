@@ -43,5 +43,6 @@ module.exports = {
   plugins,
   output: { uniqueName: 'onecx-help-ui', publicPath: 'auto' },
   experiments: { ...config.experiments, topLevelAwait: true },
-  optimization: { runtimeChunk: false, splitChunks: false }
+  optimization: { runtimeChunk: false, splitChunks: false },
+  module: { parser: { javascript: { importMeta: false } } }
 }
