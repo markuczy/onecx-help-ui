@@ -13,7 +13,7 @@ import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog'
 
 import { IfPermissionDirective } from '@onecx/angular-accelerator'
 import { AppStateService, PortalMessageService } from '@onecx/angular-integration-interface'
-import { BASE_URL, RemoteComponentConfig } from '@onecx/angular-remote-components'
+import { REMOTE_COMPONENT_CONFIG, RemoteComponentConfig } from '@onecx/angular-remote-components'
 
 import { Help, HelpsInternalAPIService } from 'src/app/shared/generated'
 import { OneCXShowHelpComponent } from './show-help.component'
@@ -37,10 +37,10 @@ describe('OneCXShowHelpComponent', () => {
   const dialogServiceSpy = jasmine.createSpyObj<DialogService>('DialogService', ['open'])
   const messageServiceSpy = jasmine.createSpyObj<PortalMessageService>('PortalMessageService', ['error'])
 
-  let baseUrlSubject: ReplaySubject<any>
+  let remoteComponentSubject: ReplaySubject<RemoteComponentConfig>
 
   beforeEach(() => {
-    baseUrlSubject = new ReplaySubject<any>(1)
+    remoteComponentSubject = new ReplaySubject<RemoteComponentConfig>(1)
     TestBed.configureTestingModule({
       declarations: [],
       imports: [
@@ -48,7 +48,7 @@ describe('OneCXShowHelpComponent', () => {
           en: require('/src/assets/i18n/en.json')
         }).withDefaultLanguage('en')
       ],
-      providers: [provideHttpClient(), provideHttpClientTesting(), { provide: BASE_URL, useValue: baseUrlSubject }]
+      providers: [provideHttpClient(), provideHttpClientTesting(), { provide: REMOTE_COMPONENT_CONFIG, useValue: remoteComponentSubject }]
     })
       .overrideComponent(OneCXShowHelpComponent, {
         set: {
@@ -61,7 +61,12 @@ describe('OneCXShowHelpComponent', () => {
         }
       })
       .compileComponents()
-    baseUrlSubject.next('base_url_mock')
+    remoteComponentSubject.next({
+      appId: 'appId',
+      productName: 'prodName',
+      permissions: [''],
+      baseUrl: 'base_url_mock'
+    } as RemoteComponentConfig)
 
     helpApiServiceSpy.getHelpByProductNameItemId.calls.reset()
     dialogServiceSpy.open.calls.reset()
@@ -99,9 +104,9 @@ describe('OneCXShowHelpComponent', () => {
 
     expect(component.permissions).toEqual(['HELP#VIEW'])
     expect(helpApiServiceSpy.configuration.basePath).toEqual('base_url/bff')
-    baseUrlSubject.asObservable().subscribe((item) => {
+    remoteComponentSubject.asObservable().subscribe((item) => {
       console.log(item)
-      expect(item).toEqual('base_url')
+      expect(item.baseUrl).toEqual('base_url')
       done()
     })
   })

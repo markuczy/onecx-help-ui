@@ -6,7 +6,8 @@ import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
 
-import { AngularAcceleratorModule, createTranslateLoader } from '@onecx/angular-accelerator'
+import { createTranslateLoader } from '@onecx/angular-utils'
+import { AngularAcceleratorModule } from '@onecx/angular-accelerator'
 import { APP_CONFIG, AppStateService } from '@onecx/angular-integration-interface'
 
 import { environment } from '../environments/environment'

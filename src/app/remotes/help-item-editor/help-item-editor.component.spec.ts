@@ -14,7 +14,7 @@ import { PrimeIcons } from 'primeng/api'
 
 import { AppStateService, PortalMessageService } from '@onecx/angular-integration-interface'
 import { IfPermissionDirective, PortalDialogService, providePortalDialogService } from '@onecx/angular-accelerator'
-import { BASE_URL, RemoteComponentConfig } from '@onecx/angular-remote-components'
+import { REMOTE_COMPONENT_CONFIG, RemoteComponentConfig } from '@onecx/angular-remote-components'
 
 import { Help, HelpsInternalAPIService } from 'src/app/shared/generated'
 import { OneCXHelpItemEditorComponent } from './help-item-editor.component'
@@ -46,10 +46,10 @@ describe('OneCXHelpItemEditorComponent', () => {
   ])
   const messageServiceSpy = jasmine.createSpyObj<PortalMessageService>('PortalMessageService', ['error', 'info'])
   const portalDialogServiceSpy = jasmine.createSpyObj<PortalDialogService>('PortalDialogService', ['openDialog'])
-  let baseUrlSubject: ReplaySubject<any>
+  let remoteComponentSubject: ReplaySubject<RemoteComponentConfig>
 
   beforeEach(waitForAsync(() => {
-    baseUrlSubject = new ReplaySubject<any>(1)
+    remoteComponentSubject = new ReplaySubject<RemoteComponentConfig>(1)
     TestBed.configureTestingModule({
       declarations: [],
       imports: [
@@ -61,7 +61,7 @@ describe('OneCXHelpItemEditorComponent', () => {
         provideHttpClient(),
         provideHttpClientTesting(),
         providePortalDialogService(),
-        { provide: BASE_URL, useValue: baseUrlSubject }
+        { provide: REMOTE_COMPONENT_CONFIG, useValue: remoteComponentSubject }
       ]
     })
       .overrideComponent(OneCXHelpItemEditorComponent, {
@@ -77,7 +77,13 @@ describe('OneCXHelpItemEditorComponent', () => {
       })
       .compileComponents()
 
-    baseUrlSubject.next('base_url_mock')
+     remoteComponentSubject.next({
+      appId: 'appId',
+      productName: 'prodName',
+      permissions: [''],
+      baseUrl: 'base_url_mock'
+    } as RemoteComponentConfig)
+
 
     helpApiServiceSpy.searchHelps.calls.reset()
     helpApiServiceSpy.createNewHelp.calls.reset()
@@ -126,9 +132,9 @@ describe('OneCXHelpItemEditorComponent', () => {
 
     expect(component.permissions).toEqual(['HELP#EDIT'])
     expect(helpApiServiceSpy.configuration.basePath).toEqual('base_url/bff')
-    baseUrlSubject.asObservable().subscribe((item) => {
+    remoteComponentSubject.asObservable().subscribe((item) => {
       console.log(item)
-      expect(item).toEqual('base_url')
+      expect(item.baseUrl).toEqual('base_url')
       done()
     })
   })

@@ -6,7 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { of } from 'rxjs'
 
-import { createTranslateLoader } from '@onecx/angular-accelerator'
+import { createTranslateLoader } from '@onecx/angular-utils'
 import { AppStateService, PortalMessageService } from '@onecx/angular-integration-interface'
 
 import { HelpSearchCriteria, HelpsInternalAPIService, Product } from 'src/app/shared/generated'

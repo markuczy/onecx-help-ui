@@ -6,7 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { of, throwError } from 'rxjs'
 
-import { createTranslateLoader } from '@onecx/angular-accelerator'
+import { createTranslateLoader } from '@onecx/angular-utils'
 import { AppStateService, PortalMessageService } from '@onecx/angular-integration-interface'
 
 import { Help, HelpsInternalAPIService, CreateHelp, Product } from 'src/app/shared/generated'
@@ -38,7 +38,8 @@ describe('HelpDetailComponent', () => {
 
   @Component({
     selector: 'app-help-form',
-    template: ''
+    template: '',
+    standalone: false,
   })
   class MockHelpFormComponent {
     formGroup = new FormGroup({

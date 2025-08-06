@@ -18,6 +18,7 @@ import {
   TRANSLATION_PATH,
   createTranslateLoader,
   provideThemeConfig,
+  provideTranslationPathFromMeta,
   remoteComponentTranslationPathFactory
 } from '@onecx/angular-utils'
 import { providePortalDialogService } from '@onecx/angular-accelerator'
@@ -35,12 +36,6 @@ bootstrapRemoteComponent(OneCXHelpItemEditorComponent, 'ocx-help-item-editor-com
       deps: [HttpClient]
     }
   }),
-  {
-    provide: TRANSLATION_PATH,
-    useFactory: (remoteComponentConfig: ReplaySubject<RemoteComponentConfig>) =>
-      remoteComponentTranslationPathFactory('assets/i18n/')(remoteComponentConfig),
-    multi: true,
-    deps: [REMOTE_COMPONENT_CONFIG]
-  },
+  provideTranslationPathFromMeta(import.meta.url, 'assets/i18n/'),
   provideThemeConfig()
 ])

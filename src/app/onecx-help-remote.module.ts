@@ -9,7 +9,8 @@ import {
   createTranslateLoader,
   translationPathFactory,
   provideThemeConfig,
-  PortalApiConfiguration
+  PortalApiConfiguration,
+  provideTranslationPathFromMeta
 } from '@onecx/angular-utils'
 import { AngularAuthModule } from '@onecx/angular-auth'
 import { AppStateService, ConfigurationService } from '@onecx/angular-integration-interface'
@@ -61,12 +62,7 @@ const routes: Routes = [
       deps: [Router, AppStateService]
     },
     provideHttpClient(withInterceptorsFromDi()),
-    {
-      provide: TRANSLATION_PATH,
-      useFactory: (appStateService: AppStateService) => translationPathFactory('assets/i18n/')(appStateService),
-      multi: true,
-      deps: [AppStateService]
-    },
+    provideTranslationPathFromMeta(import.meta.url, 'assets/i18n/'),
     provideThemeConfig({
       overrides: {
         components: {
