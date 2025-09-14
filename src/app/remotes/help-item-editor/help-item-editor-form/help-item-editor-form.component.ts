@@ -7,13 +7,14 @@ import { TooltipModule } from 'primeng/tooltip'
 import { FieldsetModule } from 'primeng/fieldset'
 import { Observable } from 'rxjs'
 import { Help } from 'src/app/shared/generated'
+import { FloatLabelModule } from 'primeng/floatlabel'
 
 @Component({
   selector: 'app-ocx-help-item-editor',
   standalone: true,
   styleUrls: ['./help-item-editor-form.component.scss'],
   templateUrl: './help-item-editor-form.component.html',
-  imports: [InputTextModule, ReactiveFormsModule, TranslateModule, TooltipModule, FieldsetModule],
+  imports: [InputTextModule, ReactiveFormsModule, TranslateModule, TooltipModule, FieldsetModule, FloatLabelModule],
   providers: [PortalMessageService, FormBuilder]
 })
 export class HelpItemEditorFormComponent implements DialogResult<Help>, DialogButtonClicked, OnChanges {

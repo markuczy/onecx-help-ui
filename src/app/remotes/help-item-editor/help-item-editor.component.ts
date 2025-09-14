@@ -128,7 +128,7 @@ export class OneCXHelpItemEditorComponent implements ocxRemoteComponent, ocxRemo
       },
       { key: 'ACTIONS.SAVE', icon: PrimeIcons.CHECK },
       { key: 'ACTIONS.CANCEL', icon: PrimeIcons.TIMES },
-      { showXButton: true, draggable: true, resizable: true, width: '550px' }
+      { showXButton: true, draggable: true, resizable: true, width: '550px', autoFocusButton: 'primary' }
     )
   }
 

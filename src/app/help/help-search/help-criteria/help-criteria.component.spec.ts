@@ -6,7 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { of } from 'rxjs'
 
-import { createTranslateLoader } from '@onecx/angular-accelerator'
+import { createTranslateLoader } from '@onecx/angular-utils'
 import { AppStateService } from '@onecx/angular-integration-interface'
 import { PortalMessageService } from '@onecx/portal-integration-angular'
 

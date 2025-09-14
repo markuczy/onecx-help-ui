@@ -27,6 +27,7 @@ import { TooltipModule } from 'primeng/tooltip'
 import { PortalCoreModule } from '@onecx/portal-integration-angular'
 
 import { LabelResolver } from './label.resolver'
+import { FloatLabelModule } from 'primeng/floatlabel'
 
 @NgModule({
   declarations: [],
@@ -54,7 +55,8 @@ import { LabelResolver } from './label.resolver'
     ToastModule,
     TooltipModule,
     TranslateModule,
-    errorTailorImports
+    errorTailorImports,
+    FloatLabelModule
   ],
   exports: [
     AutoCompleteModule,
@@ -79,7 +81,8 @@ import { LabelResolver } from './label.resolver'
     ToastModule,
     TooltipModule,
     TranslateModule,
-    errorTailorImports
+    errorTailorImports,
+    FloatLabelModule
   ],
   //this is not elegant, for some reason the injection token from primeng does not work across federated module
   providers: [
